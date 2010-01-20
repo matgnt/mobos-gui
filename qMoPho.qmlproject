@@ -4,3 +4,15 @@ content/Button.qml
 content/DialView.qml
 content/HomeScreen.qml
 content/Loading.qml
+
+3rdparty/qt/clocks/clocks.qml
+
+3rdparty/qt/webbrowser/webbrowser.qml
+
+3rdparty/qt/clocks/content/Clock.qml
+
+3rdparty/qt/webbrowser/content/RetractingWebBrowserHeader.qml
+3rdparty/qt/webbrowser/content/RectSoftShadow.qml
+3rdparty/qt/webbrowser/content/FlickableWebView.qml
+
+3rdparty/qt/webbrowser/browser.qml

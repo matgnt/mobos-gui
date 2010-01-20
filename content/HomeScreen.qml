@@ -5,6 +5,8 @@ Item {
     property int iconSize: 58
 
     signal openDial
+    signal openClock
+    signal openBrowser
 
     Grid {
         columns: 4
@@ -18,10 +20,18 @@ Item {
             onClicked: openDial()
         }
         AppIcon {
+            id: btnClock
+            height: iconSize
+            width: iconSize
+            iconSource: "images/gpl/Clock_58.png"
+            onClicked: openClock()
+        }
+        AppIcon {
             id: btnBrowser
             height: iconSize
             width: iconSize
             iconSource: "images/gpl/Browser_58.png"
+            onClicked: openBrowser()
         }
         AppIcon {
             id: btnCalendar
@@ -29,6 +39,7 @@ Item {
             width: iconSize
             iconSource: "images/gpl/Calendar_58.png"
         }
+
         AppIcon {
             id: btnSettings
             height: iconSize
