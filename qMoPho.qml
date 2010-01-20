@@ -35,7 +35,7 @@ Item {
             //x: 2
             y: 2;
             width: parent.width -4
-            height: 380
+            height: 404
             onBack: screen.runningApp = ""
         }
 

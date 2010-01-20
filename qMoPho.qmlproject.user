@@ -6,7 +6,7 @@
  </data>
  <data>
   <variable>RunConfiguration0-mainscript</variable>
-  <value type="QString">&lt;Current File></value>
+  <value type="QString">qMoPho.qml</value>
  </data>
  <data>
   <variable>RunConfiguration0-qmlviewer</variable>
