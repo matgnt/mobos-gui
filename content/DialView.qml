@@ -3,8 +3,10 @@ import Qt 4.6
 Item {
     id: container
     //anchors.centerIn: parent
-    property int iconKeyWidth: 100
-    property int iconKeyHeight: 65
+    width: 240
+    height: 320
+    property int iconKeyWidth: width / 3  // default values
+    property int iconKeyHeight: height / 6 // change from outside
 
     signal back
 
@@ -25,9 +27,17 @@ Item {
                 function appendText(str) {
                     txtNumber.text = txtNumber.text + str
                 }
-                width: 304
-                height: 65
-                BorderImage { source: "images/black_box_100.png"; anchors.fill: parent }
+                function backSpace() {
+                    txtNumber.text = txtNumber.text.slice(0,txtNumber.text.length - 1)
+                }
+
+                width: parent.width
+                height: iconKeyHeight
+                BorderImage {
+                    source: "images/black_box_100.png"
+                    anchors.fill: parent
+                    height: iconKeyHeight
+                }
                 TextInput {
                     id: txtNumber
                     width: parent.width - 8
@@ -175,7 +185,7 @@ Item {
                     text: "<-"
                     width: iconKeyWidth
                     height: iconKeyHeight
-                    onClicked: back()
+                    onClicked: {numberField.backSpace() }
                 }
 
             }

@@ -7,10 +7,12 @@ Item {
     signal openDial
     signal openClock
     signal openBrowser
+    signal openContacts
 
     Grid {
-        columns: 4
+        columns: 3
         spacing: 10
+        anchors.centerIn: parent
 
         AppIcon {
             id: btnDial
@@ -32,6 +34,20 @@ Item {
             width: iconSize
             iconSource: "images/gpl/Browser_58.png"
             onClicked: openBrowser()
+        }
+        AppIcon {
+            id: btnContacts
+            height: iconSize
+            width: iconSize
+            iconSource: "images/lgpl/contacts.png"
+            onClicked: openContacts()
+        }
+
+        AppIcon {
+            id: btnNotes
+            height: iconSize
+            width: iconSize
+            iconSource: "images/gpl/Notes_58.png"
         }
         AppIcon {
             id: btnCalendar
@@ -57,12 +73,6 @@ Item {
             height: iconSize
             width: iconSize
             iconSource: "images/gpl/Maps_58.png"
-        }
-        AppIcon {
-            id: btnNotes
-            height: iconSize
-            width: iconSize
-            iconSource: "images/gpl/Notes_58.png"
         }
 
     }

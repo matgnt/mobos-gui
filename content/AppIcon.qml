@@ -10,6 +10,7 @@ Item {
     property int textSize: 16
     property string smallText: ""
     property int smallTextSize: 10
+    property string textColor: "#FFFFFF"
 
     BorderImage {
         id: buttonImage
@@ -20,14 +21,14 @@ Item {
     Text {
         id: mainText
         text: container.text
-        color: "#FFFFFF"
+        color: textColor
         anchors.centerIn: buttonImage; font.bold: true
         style: Text.Raised; styleColor: "black"
         font.pixelSize: textSize
     }
     Text {
         text: container.smallText
-        color: "#FFFFFF"
+        color: textColor
         anchors.top: mainText.bottom ; font.bold: true
         anchors.horizontalCenter: mainText.horizontalCenter
         style: Text.Raised; styleColor: "black"
