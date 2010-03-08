@@ -10,7 +10,7 @@ Rectangle {
 
     signal clicked
 
-    MouseRegion {
+    MouseArea {
         anchors.fill: parent
         onClicked: container.clicked()
     }

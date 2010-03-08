@@ -78,7 +78,7 @@ Item {
                 id: borwserView
                 y: 2;
                 x: -(screen.width*5)
-                x: 0
+                //x: 0
                 width: parent.width
                 height: parent.height
             }
@@ -126,7 +126,7 @@ Item {
     ]
 
     transitions: [
-        Transition { NumberAnimation { matchProperties: "x,y"; duration: 500; easing: "easeInOutQuad" } }
+        Transition { NumberAnimation { properties: "x,y"; duration: 500; easing.type: "InOutQuad" } }
     ]
 
 }

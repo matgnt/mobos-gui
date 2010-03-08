@@ -1,43 +1,41 @@
 <!DOCTYPE QtCreatorProject>
 <qtcreator>
  <data>
-  <variable>RunConfiguration0-Id</variable>
-  <value type="QString">QmlProject.QmlLocalApplicationRunConfiguration</value>
- </data>
- <data>
-  <variable>RunConfiguration0-RunConfiguration.name</variable>
-  <value type="QString">QML Viewer</value>
- </data>
- <data>
-  <variable>RunConfiguration0-debugserverport</variable>
-  <value type="uint">3768</value>
- </data>
- <data>
-  <variable>RunConfiguration0-mainscript</variable>
-  <value type="QString">qMoPho.qml</value>
- </data>
- <data>
-  <variable>RunConfiguration0-qmlviewer</variable>
-  <value type="QString"></value>
- </data>
- <data>
-  <variable>RunConfiguration0-qmlviewerargs</variable>
-  <value type="QString"></value>
- </data>
- <data>
-  <variable>activeRunConfiguration</variable>
+  <variable>ProjectExplorer.Project.ActiveTarget</variable>
   <value type="int">0</value>
  </data>
  <data>
-  <variable>activebuildconfiguration</variable>
-  <value type="QString">-1</value>
+  <variable>ProjectExplorer.Project.EditorSettings</variable>
+  <valuemap type="QVariantMap">
+   <value key="EditorConfiguration.Codec" type="QByteArray">System</value>
+  </valuemap>
  </data>
  <data>
-  <variable>buildconfigurations</variable>
-  <valuelist type="QVariantList"/>
+  <variable>ProjectExplorer.Project.Target.0</variable>
+  <valuemap type="QVariantMap">
+   <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">QML Viewer</value>
+   <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">QmlProjectManager.QmlTarget</value>
+   <value key="ProjectExplorer.Target.ActiveBuildConfiguration" type="int">-1</value>
+   <value key="ProjectExplorer.Target.ActiveRunConfiguration" type="int">0</value>
+   <value key="ProjectExplorer.Target.BuildConfigurationCount" type="int">0</value>
+   <valuemap key="ProjectExplorer.Target.RunConfiguration.0" type="QVariantMap">
+    <value key="ProjectExplorer.ProjectConfiguration.DisplayName" type="QString">QML Viewer</value>
+    <value key="ProjectExplorer.ProjectConfiguration.Id" type="QString">QmlProjectManager.QmlRunConfiguration</value>
+    <value key="QmlProjectManager.QmlRunConfiguration.DebugServerAddress" type="QString">127.0.0.1</value>
+    <value key="QmlProjectManager.QmlRunConfiguration.DebugServerPort" type="uint">3768</value>
+    <value key="QmlProjectManager.QmlRunConfiguration.MainScript" type="QString">qMoPho.qml</value>
+    <value key="QmlProjectManager.QmlRunConfiguration.QDeclarativeViewer" type="QString"></value>
+    <value key="QmlProjectManager.QmlRunConfiguration.QDeclarativeViewerArguments" type="QString"></value>
+   </valuemap>
+   <value key="ProjectExplorer.Target.RunConfigurationCount" type="int">1</value>
+  </valuemap>
  </data>
  <data>
-  <variable>defaultFileEncoding</variable>
-  <value type="QByteArray">System</value>
+  <variable>ProjectExplorer.Project.TargetCount</variable>
+  <value type="int">1</value>
+ </data>
+ <data>
+  <variable>ProjectExplorer.Project.Updater.FileVersion</variable>
+  <value type="int">2</value>
  </data>
 </qtcreator>

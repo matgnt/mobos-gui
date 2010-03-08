@@ -1,26 +1,36 @@
-qMoPho.qml
-content/AppIcon.qml
-content/Button.qml
-content/DialView.qml
-content/HomeScreen.qml
-content/Loading.qml
 
-3rdparty/qt/clocks/clocks.qml
+import QmlProject 1.0
 
-3rdparty/qt/webbrowser/webbrowser.qml
+Project {
+    // Scan current directory for .qml, .js, and image files
+    QmlFiles {
+        directory: "."
+    }
+    QmlFiles {
+        directory: "content"
+    }
+    QmlFiles {
+        directory: "3rdparty/qt/clocks/"
+    }
+    QmlFiles {
+        directory: "3rdparty/qt/clocks/content/"
+    }
 
-3rdparty/qt/clocks/content/Clock.qml
 
-3rdparty/qt/webbrowser/content/RetractingWebBrowserHeader.qml
-3rdparty/qt/webbrowser/content/RectSoftShadow.qml
-3rdparty/qt/webbrowser/content/FlickableWebView.qml
+    QmlFiles {
+        directory: "3rdparty/qt/webbrowser/"
+    }
+    QmlFiles {
+        directory: "3rdparty/qt/webbrowser/content"
+    }
+    QmlFiles {
+        directory: "dummydata/"
+    }
 
-3rdparty/qt/webbrowser/browser.qml
-
-content/Contacts.qml
-
-content/ContactsToolbar.qml
-
-content/ContactsList.qml
-
-dummydata/Recipes.qml
+    JavaScriptFiles {
+        directory: "."
+    }
+    ImageFiles {
+        directory: "."
+    }
+}

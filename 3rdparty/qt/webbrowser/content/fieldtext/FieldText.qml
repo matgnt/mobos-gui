@@ -85,7 +85,7 @@ Item {
         font.bold: true
         text: label
         opacity: textEdit.text == '' ? 1 : 0
-        opacity: Behavior {
+        Behavior on opacity {
             NumberAnimation {
                 property: "opacity"
                 duration: 250
@@ -93,17 +93,17 @@ Item {
         }
     }
 
-    MouseRegion {
+    MouseArea {
         anchors.fill: cancelIcon
         onClicked: { reset() }
     }
 
-    MouseRegion {
+    MouseArea {
         anchors.fill: confirmIcon
         onClicked: { confirm() }
     }
 
-    MouseRegion {
+    MouseArea {
         id: editRegion
         anchors.fill: textEdit
         onClicked: { edit() }
@@ -149,7 +149,7 @@ Item {
         to: "*"
         reversible: true
         NumberAnimation {
-            matchProperties: "opacity,leftMargin,rightMargin"
+            properties: "opacity,leftMargin,rightMargin"
             duration: 200
         }
         ColorAnimation {

@@ -1,4 +1,4 @@
-import Qt 4.6
+import Qt 4.7
 
 Item {
     id: container
@@ -34,7 +34,7 @@ Item {
         style: Text.Raised; styleColor: "black"
         font.pixelSize: smallTextSize
     }
-    MouseRegion {
+    MouseArea {
         id: mouseRegion
         anchors.fill: buttonImage
         onClicked: { container.clicked(); }
