@@ -1,0 +1,2 @@
+
+qdbusxml2cpp -p Notifications.h -v notifications.xml org.freedesktop.Notifications
