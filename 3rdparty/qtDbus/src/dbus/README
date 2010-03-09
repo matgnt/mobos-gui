@@ -1,2 +1,13 @@
 
 qdbusxml2cpp -p Notifications.h -v notifications.xml org.freedesktop.Notifications
+
+
+dbus-send --print-reply --system --dest=org.ofono /phonesim org.freedesktop.DBus.Introspectable.Introspect > ofono_off.xml
+
+qdbusxml2cpp -a OfonoAdaptor -p OfonoProxy -v ofono_off.xml org.ofono.Modem
+
+
+<annotation name="com.trolltech.QtDBus.QtTypeName.In6" value="QVariantMap"/>
+for:
+<arg name="hints" type="a{sv}" direction="in"/>
+into <method> tag

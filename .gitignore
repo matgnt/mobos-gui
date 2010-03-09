@@ -1,1 +1,5 @@
 *.pro.user
+3rdparty/qtDbus/Makefile
+3rdparty/qtDbus/gdb.txt
+3rdparty/qtDbus/obj/
+3rdparty/qtDbus/qtDbus

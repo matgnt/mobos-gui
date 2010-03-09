@@ -13,6 +13,8 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 	ui.setupUi(this);
 	connect(ui.btnSystemPopup, SIGNAL(clicked()), this, SLOT(btnSystemPopupClicked()));
+    connect(ui.btnPowerOn, SIGNAL(clicked()), this, SLOT(btnPowerOnClicked()));
+    connect(ui.btnPowerOff, SIGNAL(clicked()), this, SLOT(btnPowerOffClicked()));
 }
 
 /**
@@ -22,6 +24,18 @@ void MainWindow::btnSystemPopupClicked()
 {
     Gsm gsm;
     gsm.popup();
+}
+
+void MainWindow::btnPowerOnClicked()
+{
+    Gsm gsm;
+    gsm.setPowerOn();
+}
+
+void MainWindow::btnPowerOffClicked()
+{
+    Gsm gsm;
+    gsm.setPowerOff();
 }
 
 MainWindow::~MainWindow() {

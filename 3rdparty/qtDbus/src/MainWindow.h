@@ -21,6 +21,8 @@ public:
 
 private slots:
 	void btnSystemPopupClicked();
+    void btnPowerOnClicked();
+    void btnPowerOffClicked();
 
 private:
 	Ui::MainWindow ui;

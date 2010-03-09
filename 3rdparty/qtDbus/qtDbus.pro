@@ -17,12 +17,16 @@ DESTDIR = .
 
 # Input
 HEADERS += src/MainWindow.h \
-            src/Gsm.h
+            src/Gsm.h \
+            src/dbus/OfonoProxy.h \
+            src/dbus/NotificationsProxy.h
            
 FORMS +=	ui/MainWindow.ui
 
 SOURCES += src/main.cpp \
             src/MainWindow.cpp \
-            src/Gsm.cpp
+            src/Gsm.cpp \
+            src/dbus/OfonoProxy.cpp \
+            src/dbus/NotificationsProxy.cpp
 
 			
