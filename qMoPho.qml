@@ -3,6 +3,7 @@ import Qt 4.6
 import "content" as AppModules
 import "3rdparty/qt/clocks" as ClockModule
 import "3rdparty/qt/webbrowser" as WebbrowserModule
+import qtDbus 1.0
 
 Item {
     id: screen; width: 240; height: 320

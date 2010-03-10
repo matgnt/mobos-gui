@@ -1,4 +1,10 @@
-*.pro.user
+*.pro.user*
+*.so*
+*~
+ui_*.h
+obj/
+Makefile
+qMoPho
 3rdparty/qtDbus/Makefile
 3rdparty/qtDbus/gdb.txt
 3rdparty/qtDbus/obj/

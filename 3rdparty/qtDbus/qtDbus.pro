@@ -4,7 +4,8 @@
 TARGET = qtDbus
 VERSION = 0.0.1
 TEMPLATE = app
-QT += dbus
+#TEMPLATE = lib
+QT += dbus declarative
 CONFIG += qt debug
 CONFIG += warn_off
 DEPENDPATH += . src ui
@@ -28,5 +29,4 @@ SOURCES += src/main.cpp \
             src/Gsm.cpp \
             src/dbus/OfonoProxy.cpp \
             src/dbus/NotificationsProxy.cpp
-
 			

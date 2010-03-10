@@ -2,6 +2,7 @@
 #define GSM_H
 
 #include <QObject>
+#include <QtDeclarative/qdeclarative.h>
 
 class Gsm : public QObject
 {
@@ -9,16 +10,17 @@ Q_OBJECT
 public:
     explicit Gsm(QObject *parent = 0);
 
-    void popup();
-    void setPowerOn();
-    void setPowerOff();
-
 private:
 
 signals:
 
 public slots:
+    void popup();
+    void setPowerOn();
+    void setPowerOff();
 
 };
+
+QML_DECLARE_TYPE(Gsm);
 
 #endif // GSM_H

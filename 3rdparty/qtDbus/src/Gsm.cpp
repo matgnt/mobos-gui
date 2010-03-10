@@ -35,3 +35,5 @@ void Gsm::setPowerOff() {
     ofono->SetProperty("Powered", QDBusVariant(false));
 
 }
+
+//QML_DEFINE_TYPE(Gsm, 1,0, Gsm, Gsm);

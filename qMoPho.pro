@@ -10,5 +10,5 @@ contains(QT_VERSION, ^4\.[0-6]\..*) {
 TEMPLATE  = subdirs
 CONFIG   += ordered
 
-SUBDIRS = 3rdparty/qtDbus/
+SUBDIRS = 3rdparty/qtDbus
 
