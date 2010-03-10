@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QDeclarativeEngine *engine = new QDeclarativeEngine;
     QDeclarativeContext *context = engine->rootContext();
     context->setContextProperty("Gsm", new Gsm);
-    QDeclarativeComponent component(engine, QUrl::fromLocalFile("/home/matthias/qt-projects/qMoPho/qMoPho.qml"));
+    QDeclarativeComponent component(engine, QUrl::fromLocalFile("./qml/qMoPho.qml"));
     QGraphicsObject *object = qobject_cast<QGraphicsObject *>(component.create());
     scene->addItem(object);
     ui.graphicsView->setScene(scene);
