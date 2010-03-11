@@ -17,6 +17,8 @@ signals:
 public slots:
     void setPowerOn();
     void setPowerOff();
+    void dial(QString number);
+
 
 };
 

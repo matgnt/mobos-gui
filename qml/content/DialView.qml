@@ -178,6 +178,7 @@ Item {
                     text: "Call"
                     width: iconKeyWidth
                     height: iconKeyHeight
+                    onClicked: { Gsm.dial(txtNumber.text) }
                 }
                 AppIcon {
                     iconSource: "images/key_100.png"
