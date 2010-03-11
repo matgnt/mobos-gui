@@ -32,7 +32,24 @@ Item {
                 height: parent.height - 2
                 onClicked: { screen.state = "" }
             }
-
+           AppModules.AppIcon {
+                iconSource: "images/key_100.png"
+                id: btnPowerOn
+                text: "On"
+                width: parent.width / 4
+                anchors.left: btnHome.right
+                height: parent.height - 2
+                onClicked: { Gsm.setPowerOn() }
+            }
+           AppModules.AppIcon {
+                iconSource: "images/key_100.png"
+                id: btnPowerOff
+                text: "Off"
+                width: parent.width / 4
+                anchors.left: btnPowerOn.right
+                height: parent.height - 2
+                onClicked: { Gsm.setPowerOff() }
+            }
         }
 
         // here we show all our different views, e.g. ContactView, DialView

@@ -19,11 +19,6 @@ public:
 	MainWindow(QWidget* parent = 0);
 	virtual ~MainWindow();
 
-private slots:
-	void btnSystemPopupClicked();
-    void btnPowerOnClicked();
-    void btnPowerOffClicked();
-
 private:
 	Ui::MainWindow ui;
 };

@@ -15,7 +15,6 @@ private:
 signals:
 
 public slots:
-    void popup();
     void setPowerOn();
     void setPowerOff();
 

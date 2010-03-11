@@ -1,13 +1,25 @@
 
-qdbusxml2cpp -p Notifications.h -v notifications.xml org.freedesktop.Notifications
 
+dbus-send --print-reply --system --dest=org.ofono /phonesim org.freedesktop.DBus.Introspectable.Introspect > ofono.xml
+(ofonod must be reunning to get SimManager and VoiceCallManager)
 
-dbus-send --print-reply --system --dest=org.ofono /phonesim org.freedesktop.DBus.Introspectable.Introspect > ofono_off.xml
-
-qdbusxml2cpp -a OfonoAdaptor -p OfonoProxy -v ofono_off.xml org.ofono.Modem
-
-
+Edit ofono.xml:
+- remove anything that is not XML (at the beginning and at the end)
+- add annotations for the unknown dbus type "a{sv}" (it matches QVariantMap)
 <annotation name="com.trolltech.QtDBus.QtTypeName.In6" value="QVariantMap"/>
 for:
 <arg name="hints" type="a{sv}" direction="in"/>
 into <method> tag
+
+where you can find
+<arg type="a{sv}" direction="out"/>
+add the following annotation:
+<annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+
+
+generate proxy classes:
+(-p means Proxy = access DBus, -a means Adopter = open your own classes for access from DBus)
+qdbusxml2cpp -p OfonoModem -v ofono.xml org.ofono.Modem
+qdbusxml2cpp -p OfonoSimManager -v ofono.xml org.ofono.SimManager
+qdbusxml2cpp -p OfonoVoiceCallManager -v ofono.xml org.ofono.VoiceCallManager
+

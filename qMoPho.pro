@@ -28,14 +28,16 @@ DESTDIR = .
 # Input
 HEADERS += src/MainWindow.h \
             src/Gsm.h \
-            src/dbus/OfonoProxy.h \
-            src/dbus/NotificationsProxy.h
+            src/dbus/OfonoModem.h \
+            src/dbus/OfonoSimManager.h \
+            src/dbus/OfonoVoiceCallManager.h
            
 FORMS +=	ui/MainWindow.ui
 
 SOURCES += src/main.cpp \
             src/MainWindow.cpp \
             src/Gsm.cpp \
-            src/dbus/OfonoProxy.cpp \
-            src/dbus/NotificationsProxy.cpp
-			
+            src/dbus/OfonoModem.cpp \
+            src/dbus/OfonoSimManager.cpp \
+            src/dbus/OfonoVoiceCallManager.cpp
+
