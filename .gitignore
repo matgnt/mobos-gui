@@ -1,4 +1,5 @@
 *.pro.user*
+*.qmlproject.user*
 *.so*
 *~
 ui_*.h
@@ -9,3 +10,6 @@ qMoPho
 3rdparty/qtDbus/gdb.txt
 3rdparty/qtDbus/obj/
 3rdparty/qtDbus/qtDbus
+.cproject
+.project
+gdb.txt

@@ -30,7 +30,10 @@ HEADERS += src/MainWindow.h \
             src/Gsm.h \
             src/dbus/OfonoModem.h \
             src/dbus/OfonoSimManager.h \
-            src/dbus/OfonoVoiceCallManager.h
+            src/dbus/OfonoVoiceCallManager.h \
+            src/dbus/OfonoVoiceCall.h \
+            src/voicecall.h \
+    src/voicecalls.h
            
 FORMS +=	ui/MainWindow.ui
 
@@ -39,5 +42,7 @@ SOURCES += src/main.cpp \
             src/Gsm.cpp \
             src/dbus/OfonoModem.cpp \
             src/dbus/OfonoSimManager.cpp \
-            src/dbus/OfonoVoiceCallManager.cpp
-
+            src/dbus/OfonoVoiceCallManager.cpp \
+            src/dbus/OfonoVoiceCall.cpp \
+            src/voicecall.cpp \
+    src/voicecalls.cpp

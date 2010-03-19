@@ -1,0 +1,27 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/phonesim/voicecall01">
+	<interface name="org.freedesktop.DBus.Introspectable">
+		<method name="Introspect">
+			<arg type="s" direction="out"/>
+		</method>
+	</interface>
+	<interface name="org.ofono.VoiceCall">
+		<method name="GetProperties">
+			<annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QVariantMap"/>
+			<arg type="a{sv}" direction="out"/>
+		</method>
+		<method name="Deflect">
+			<arg type="s" direction="in"/>
+		</method>
+		<method name="Hangup"/>
+		<method name="Answer"/>
+		<signal name="PropertyChanged">
+			<arg type="s"/>
+			<arg type="v"/>
+		</signal>
+		<signal name="DisconnectReason">
+			<arg type="s"/>
+		</signal>
+	</interface>
+</node>

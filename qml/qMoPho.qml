@@ -61,6 +61,7 @@ Item {
             anchors.top: titleBar.bottom
             height: screen.height - titleBar.height
 
+
             AppModules.HomeScreen{
                 id: homeView
                 anchors.verticalCenter: parent.verticalCenter
@@ -70,7 +71,7 @@ Item {
                 onOpenClock: screen.state = "clock"
                 onOpenBrowser: screen.state = "browser"
                 onOpenContacts: screen.state = "contacts"
-
+                onOpenWaitingView: screen.state = "callWaiting"
             }
 
             AppModules.DialView{
@@ -92,14 +93,14 @@ Item {
                 onClicked: screen.runningApp = ""
             }
 
-            WebbrowserModule.webbrowser {
-                id: borwserView
-                y: 2;
-                x: -(screen.width*5)
-                //x: 0
-                width: parent.width
-                height: parent.height
-            }
+//            WebbrowserModule.webbrowser {
+//                id: borwserView
+//                y: 2;
+//                x: -(screen.width*5)
+//                //x: 0
+//                width: parent.width
+//                height: parent.height
+//            }
 
             AppModules.ContactsList {
                 id: contacts
@@ -108,6 +109,13 @@ Item {
                 height: parent.height
 
             }
+            AppModules.CallWaitingView {
+                id: callWaitingView
+                x: -(screen.width*5)
+                width: parent.width
+                height: parent.height
+            }
+
 
 
         }
@@ -138,7 +146,14 @@ Item {
             name: "contacts"
             PropertyChanges{ target: contacts; x:0 }
             PropertyChanges{ target: homeView; x: (screen.width*2) }
+        },
+        State {
+            name: "callWaiting"
+            PropertyChanges{ target: callWaitingView; x:0 }
+            PropertyChanges{ target: homeView; x: (screen.width*2) }
+
         }
+
 
 
     ]

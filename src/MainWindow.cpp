@@ -18,12 +18,15 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 	ui.setupUi(this);
 
-    QGraphicsScene* scene = new QGraphicsScene(0, 0, 240, 320);
+
     QDeclarativeEngine *engine = new QDeclarativeEngine;
     QDeclarativeContext *context = engine->rootContext();
-    context->setContextProperty("Gsm", new Gsm);
+    context->setContextProperty("Gsm", new Gsm());
     QDeclarativeComponent component(engine, QUrl::fromLocalFile("./qml/qMoPho.qml"));
     QGraphicsObject *object = qobject_cast<QGraphicsObject *>(component.create());
+
+    // load qml into the view
+    QGraphicsScene* scene = new QGraphicsScene(0, 0, 240, 320);
     scene->addItem(object);
     ui.graphicsView->setScene(scene);
     ui.graphicsView->show();

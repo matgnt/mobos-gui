@@ -8,6 +8,8 @@ Item {
     signal openClock
     signal openBrowser
     signal openContacts
+    // tmp
+    signal openWaitingView
 
     Grid {
         columns: 3
@@ -48,7 +50,8 @@ Item {
             height: iconSize
             width: iconSize
             iconSource: "images/gpl/Notes_58.png"
-            onClicked: Gsm.setPowerOn()
+            //onClicked: Gsm.setPowerOn()
+            onClicked: openWaitingView()
         }
         AppIcon {
             id: btnCalendar

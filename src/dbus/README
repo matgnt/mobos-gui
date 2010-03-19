@@ -1,7 +1,7 @@
 
 
 dbus-send --print-reply --system --dest=org.ofono /phonesim org.freedesktop.DBus.Introspectable.Introspect > ofono.xml
-(ofonod must be reunning to get SimManager and VoiceCallManager)
+(ofonod must be running to get SimManager and VoiceCallManager)
 
 Edit ofono.xml:
 - remove anything that is not XML (at the beginning and at the end)
@@ -22,4 +22,5 @@ generate proxy classes:
 qdbusxml2cpp -p OfonoModem -v ofono.xml org.ofono.Modem
 qdbusxml2cpp -p OfonoSimManager -v ofono.xml org.ofono.SimManager
 qdbusxml2cpp -p OfonoVoiceCallManager -v ofono.xml org.ofono.VoiceCallManager
+qdbusxml2cpp -p OfonoVoiceCall -v ofono_voicecall.xml org.ofono.VoiceCall
 
