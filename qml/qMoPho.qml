@@ -3,11 +3,18 @@ import Qt 4.6
 import "content" as AppModules
 import "3rdparty/qt/clocks" as ClockModule
 import "3rdparty/qt/webbrowser" as WebbrowserModule
-import qtDbus 1.0
+import OfonoLib 1.0
+
+
+
 
 Item {
     id: screen; width: 240; height: 320
     //property string runningApp: ""
+
+    Ofono {
+        onCallsChanged: { screen.state = "callWaiting"; console.log("Calles changed - QML...") }
+    }
 
     Rectangle {
         id: background
@@ -39,7 +46,7 @@ Item {
                 width: parent.width / 4
                 anchors.left: btnHome.right
                 height: parent.height - 2
-                onClicked: { Ofono.setPowerOn() }
+                onClicked: { OfonoContext.setPowerOn() }
             }
            AppModules.AppIcon {
                 iconSource: "images/key_100.png"
@@ -48,7 +55,7 @@ Item {
                 width: parent.width / 4
                 anchors.left: btnPowerOn.right
                 height: parent.height - 2
-                onClicked: { Ofono.setPowerOff() }
+                onClicked: { OfonoContext.setPowerOff() }
             }
         }
 

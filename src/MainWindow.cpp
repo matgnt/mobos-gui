@@ -18,11 +18,21 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 	ui.setupUi(this);
 
+    QML_REGISTER_TYPE(OfonoLib, 1,0, Ofono, Ofono);
+
 
     QDeclarativeEngine *engine = new QDeclarativeEngine;
     QDeclarativeContext *context = engine->rootContext();
-    context->setContextProperty("Ofono", new Ofono());
+    context->setContextProperty("OfonoContext", new Ofono());
     QDeclarativeComponent component(engine, QUrl::fromLocalFile("./qml/qMoPho.qml"));
+    // to print out errors in the qml file
+    if(component.isError()) {
+        QListIterator<QDeclarativeError> itr (component.errors());
+        while(itr.hasNext()) {
+            QDeclarativeError current = itr.next();
+            qDebug() << current;
+        }
+    }
     QGraphicsObject *object = qobject_cast<QGraphicsObject *>(component.create());
 
     // load qml into the view

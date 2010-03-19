@@ -17,7 +17,7 @@
 class Ofono : public QObject
 {
 Q_OBJECT
-Q_PROPERTY(QString waitingNumber READ getWaitingNumber NOTIFY waitingCallChanged)
+//Q_PROPERTY(QString waitingNumber READ getWaitingNumber NOTIFY waitingCallChanged)
 
 public:
     Ofono(QObject *parent = 0);
