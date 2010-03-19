@@ -39,7 +39,7 @@ Item {
                 width: parent.width / 4
                 anchors.left: btnHome.right
                 height: parent.height - 2
-                onClicked: { Gsm.setPowerOn() }
+                onClicked: { Ofono.setPowerOn() }
             }
            AppModules.AppIcon {
                 iconSource: "images/key_100.png"
@@ -48,7 +48,7 @@ Item {
                 width: parent.width / 4
                 anchors.left: btnPowerOn.right
                 height: parent.height - 2
-                onClicked: { Gsm.setPowerOff() }
+                onClicked: { Ofono.setPowerOff() }
             }
         }
 

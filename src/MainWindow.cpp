@@ -8,7 +8,7 @@
 #include <QtCore/QDebug>
 #include "MainWindow.h"
 //#include "dbus/Notifications.h"
-#include "Gsm.h"
+#include "ofono.h"
 
 #include <QtDeclarative/QDeclarativeEngine>
 #include <QtDeclarative/QDeclarativeComponent>
@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
     QDeclarativeEngine *engine = new QDeclarativeEngine;
     QDeclarativeContext *context = engine->rootContext();
-    context->setContextProperty("Gsm", new Gsm());
+    context->setContextProperty("Ofono", new Ofono());
     QDeclarativeComponent component(engine, QUrl::fromLocalFile("./qml/qMoPho.qml"));
     QGraphicsObject *object = qobject_cast<QGraphicsObject *>(component.create());
 

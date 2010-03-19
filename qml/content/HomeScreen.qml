@@ -50,7 +50,7 @@ Item {
             height: iconSize
             width: iconSize
             iconSource: "images/gpl/Notes_58.png"
-            //onClicked: Gsm.setPowerOn()
+            //onClicked: Ofono.setPowerOn()
             onClicked: openWaitingView()
         }
         AppIcon {

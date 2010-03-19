@@ -27,7 +27,7 @@ DESTDIR = .
 
 # Input
 HEADERS += src/MainWindow.h \
-            src/Gsm.h \
+            src/ofono.h \
             src/dbus/OfonoModem.h \
             src/dbus/OfonoSimManager.h \
             src/dbus/OfonoVoiceCallManager.h \
@@ -39,7 +39,7 @@ FORMS +=	ui/MainWindow.ui
 
 SOURCES += src/main.cpp \
             src/MainWindow.cpp \
-            src/Gsm.cpp \
+            src/ofono.cpp \
             src/dbus/OfonoModem.cpp \
             src/dbus/OfonoSimManager.cpp \
             src/dbus/OfonoVoiceCallManager.cpp \

@@ -1,9 +1,9 @@
-#include "Gsm.h"
+#include "ofono.h"
 #include "dbus/OfonoVoiceCall.h"
 #include <QtCore/QDebug>
 #include <QDBusConnection>
 
-Gsm::Gsm(QObject *parent) :
+Ofono::Ofono(QObject *parent) :
     QObject(parent)
 {
     m_VoiceCallManager = new OrgOfonoVoiceCallManagerInterface("org.ofono", OFONO_MODEM_OBJECT_PATH, QDBusConnection::systemBus());
@@ -12,25 +12,25 @@ Gsm::Gsm(QObject *parent) :
 
 }
 
-void Gsm::setPowerOn() {
+void Ofono::setPowerOn() {
     OrgOfonoModemInterface ofono("org.ofono", OFONO_MODEM_OBJECT_PATH, QDBusConnection::systemBus());
     ofono.SetProperty("Powered", QDBusVariant(true));
 }
 
-void Gsm::setPowerOff() {
+void Ofono::setPowerOff() {
     OrgOfonoModemInterface* ofono = new OrgOfonoModemInterface("org.ofono", OFONO_MODEM_OBJECT_PATH, QDBusConnection::systemBus());
     ofono->SetProperty("Powered", QDBusVariant(false));
 
 }
 
-void Gsm::dial(QString number)
+void Ofono::dial(QString number)
 {
     OrgOfonoVoiceCallManagerInterface* ofono = new OrgOfonoVoiceCallManagerInterface("org.ofono", OFONO_MODEM_OBJECT_PATH, QDBusConnection::systemBus());
     qDebug() << "Dial number: " << number;
     ofono->Dial(number, "default");
 }
 
-void Gsm::PropertyChanged(const QString &name, const QDBusVariant &value)
+void Ofono::PropertyChanged(const QString &name, const QDBusVariant &value)
 {
     qDebug() << name;
     if(name == "Calls") {
@@ -47,7 +47,7 @@ void Gsm::PropertyChanged(const QString &name, const QDBusVariant &value)
     }
 }
 
-QString Gsm::getWaitingNumber()
+QString Ofono::getWaitingNumber()
 {
     return "55555";
 }
@@ -123,8 +123,8 @@ const QDBusArgument &operator>>(const QDBusArgument &a,  VoiceCalls &calls) {
     return a;
 }
 
-Gsm::~Gsm()
+Ofono::~Ofono()
 {
 	delete m_VoiceCallManager;
 }
-//QML_DEFINE_TYPE(Gsm, 1,0, Gsm, Gsm);
+//QML_DEFINE_TYPE(Ofono, 1,0, Ofono, Ofono);

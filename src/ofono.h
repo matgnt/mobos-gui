@@ -1,5 +1,5 @@
-#ifndef GSM_H
-#define GSM_H
+#ifndef OFONO_H
+#define OFONO_H
 
 #include <QObject>
 #include <QtDeclarative/qdeclarative.h>
@@ -14,14 +14,14 @@
 #define OFONO_MODEM_OBJECT_PATH "/phonesim"
 
 
-class Gsm : public QObject
+class Ofono : public QObject
 {
 Q_OBJECT
 Q_PROPERTY(QString waitingNumber READ getWaitingNumber NOTIFY waitingCallChanged)
 
 public:
-    Gsm(QObject *parent = 0);
-    ~Gsm();
+    Ofono(QObject *parent = 0);
+    ~Ofono();
 
     QString getWaitingNumber();
 
@@ -45,6 +45,6 @@ private:
 
 };
 
-QML_DECLARE_TYPE(Gsm);
+QML_DECLARE_TYPE(Ofono);
 
-#endif // GSM_H
+#endif // OFONO_H
