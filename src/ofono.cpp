@@ -74,6 +74,9 @@ QString Ofono::getWaitingNumber()
     return "55555";
 }
 
+/*
+ * Map the QDbusArgument for one call to the corresponding Qt type VoiceCall.
+ */
 const QDBusArgument &operator>>(const QDBusArgument &a, VoiceCall &voicecall) {
     QDBusObjectPath opath;
     a >> opath;
@@ -119,47 +122,6 @@ VoiceCallState Ofono::translateState(QString state)
     } else {
         return NONE;
     }
-}
-
-/*
- * Map the QDbusArgument for "Calls" Property to the corresponding Qt typ.
- * In DBus it is an array of object pathes.
- */
-const QDBusArgument &operator>>(const QDBusArgument &a,  VoiceCalls &calls) {
-    calls.empty();
-
-    a.beginArray();
-    while(!a.atEnd()) {
-        QDBusObjectPath opath;
-        a >> opath;
-        //calls.append(opath.path());
-
-        // get call properties
-        QString path = opath.path();
-        qDebug() << path;
-        OrgOfonoVoiceCallInterface ofono("org.ofono", path, QDBusConnection::systemBus());
-        QDBusPendingReply<QVariantMap> reply = ofono.GetProperties();
-        //QDBusPendingReply<> reply = ofono.Answer();
-        reply.waitForFinished();
-        if(reply.isValid()) {
-            qDebug() << "count: " << reply.count();
-            QVariantMap val = reply.value();
-            qDebug() << val;
-            QVariant nr = val["LineIdentification"];
-
-            //m_waitingNumber = nr.toString();
-            //emit waitingCallChanged();
-            VoiceCall vc(path, nr.toString(), NONE); // TODO: fix state
-            calls.append(vc);
-
-        } else {
-            qDebug() << "Invalid reply: " << reply.error().message();
-        }
-
-    }
-    a.endArray();
-
-    return a;
 }
 
 Ofono::~Ofono()
