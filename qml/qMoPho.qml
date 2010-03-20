@@ -13,7 +13,8 @@ Item {
     //property string runningApp: ""
 
     Ofono {
-        onCallsChanged: { screen.state = "callWaiting"; console.log("Calles changed - QML...") }
+        onIncomingCall: { screen.state = "callWaiting"; console.log("QML: Incoming Call: " + number) }
+        onOutgoingCall: { screen.state = "callWaiting"; console.log("QML: Outgoing Call: " + number) }
     }
 
     Rectangle {

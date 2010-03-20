@@ -178,7 +178,7 @@ Item {
                     text: "Call"
                     width: iconKeyWidth
                     height: iconKeyHeight
-                    onClicked: { Ofono.dial(txtNumber.text) }
+                    onClicked: { OfonoContext.dial(txtNumber.text) }
                 }
                 AppIcon {
                     iconSource: "images/key_100.png"

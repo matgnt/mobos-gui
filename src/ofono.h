@@ -12,6 +12,8 @@
 #include "voicecalls.h"
 
 #define OFONO_MODEM_OBJECT_PATH "/phonesim"
+#define OFONO_STATE_INCOMING "incoming"
+#define OFONO_STATE_OUTGOING "dialing"
 
 
 class Ofono : public QObject
@@ -24,19 +26,26 @@ public:
     ~Ofono();
 
     QString getWaitingNumber();
+    static VoiceCallState translateState(QString);
 
 private:
 
 signals:
     void callsChanged();
+    void incomingCall(QString number);
+    void outgoingCall(QString number);
 
 public slots:
+    // methods, but listed as slots to execute them from QML
     void setPowerOn();
     void setPowerOff();
     void dial(QString number);
 
     // incoming DBus signals
     void PropertyChanged(const QString &name, const QDBusVariant &value);
+
+    // slots to process internal signals to emit simpler signals for QML
+    void processChangedCalls();
 
 private:
     OrgOfonoVoiceCallManagerInterface* m_VoiceCallManager;

@@ -7,8 +7,12 @@ Ofono::Ofono(QObject *parent) :
     QObject(parent)
 {
     m_VoiceCallManager = new OrgOfonoVoiceCallManagerInterface("org.ofono", OFONO_MODEM_OBJECT_PATH, QDBusConnection::systemBus());
-	// DBus signals
-	connect(m_VoiceCallManager, SIGNAL(PropertyChanged(const QString, const QDBusVariant)), this, SLOT(PropertyChanged(const QString, const QDBusVariant)));
+
+    // DBus signals
+    connect(m_VoiceCallManager, SIGNAL(PropertyChanged(const QString, const QDBusVariant)), this, SLOT(PropertyChanged(const QString, const QDBusVariant)));
+
+    // connect the process slots
+    connect(this, SIGNAL(callsChanged()), this, SLOT(processChangedCalls()));
 
 }
 
@@ -28,6 +32,24 @@ void Ofono::dial(QString number)
     OrgOfonoVoiceCallManagerInterface* ofono = new OrgOfonoVoiceCallManagerInterface("org.ofono", OFONO_MODEM_OBJECT_PATH, QDBusConnection::systemBus());
     qDebug() << "Dial number: " << number;
     ofono->Dial(number, "default");
+}
+
+void Ofono::processChangedCalls()
+{
+    QListIterator<VoiceCall> itr(m_voiceCalls);
+    while(itr.hasNext()) {
+        VoiceCall call = itr.next();
+        VoiceCallState state = call.getState();
+        switch (state)
+        {
+            case INCOMING:
+                emit incomingCall(call.getNumber());
+                break;
+            case OUTGOING:
+                emit outgoingCall(call.getNumber());
+                break;
+        }
+    }
 }
 
 void Ofono::PropertyChanged(const QString &name, const QDBusVariant &value)
@@ -67,11 +89,13 @@ const QDBusArgument &operator>>(const QDBusArgument &a, VoiceCall &voicecall) {
         qDebug() << "count: " << reply.count();
         QVariantMap val = reply.value();
         qDebug() << val;
-        QVariant nr = val["LineIdentification"];
+        QString nr = val["LineIdentification"].toString();
+        QString stateVal = val["State"].toString();
+        VoiceCallState state = Ofono::translateState(stateVal);
 
         //m_waitingNumber = nr.toString();
         //emit waitingCallChanged();
-        VoiceCall vc(path, nr.toString(), NONE); // TODO: fix state
+        VoiceCall vc(path, nr, state);
         voicecall = vc;
 
     } else {
@@ -80,6 +104,21 @@ const QDBusArgument &operator>>(const QDBusArgument &a, VoiceCall &voicecall) {
 
 
     return a;
+}
+
+/*
+ * Just map the oFono call states to the c++ state enum
+ * If there is no matching state, it returns the enum state NONE (0)
+ */
+VoiceCallState Ofono::translateState(QString state)
+{
+    if(state == OFONO_STATE_INCOMING) {
+        return INCOMING;
+    } else if(state == OFONO_STATE_OUTGOING) {
+        return OUTGOING;
+    } else {
+        return NONE;
+    }
 }
 
 /*
