@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QML_REGISTER_TYPE(OfonoLib, 1,0, Ofono, Ofono);
 
 
-    QDeclarativeEngine *engine = new QDeclarativeEngine;
+    QDeclarativeEngine *engine = new QDeclarativeEngine();
     QDeclarativeContext *context = engine->rootContext();
     context->setContextProperty("OfonoContext", new Ofono());
     QDeclarativeComponent component(engine, QUrl::fromLocalFile("./qml/qMoPho.qml"));

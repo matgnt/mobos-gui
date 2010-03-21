@@ -54,6 +54,6 @@ private:
 
 };
 
-QML_DECLARE_TYPE(Ofono);
+//QML_DECLARE_TYPE(Ofono);
 
 #endif // OFONO_H
