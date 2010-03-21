@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QDeclarativeEngine *engine = new QDeclarativeEngine();
     QDeclarativeContext *context = engine->rootContext();
     context->setContextProperty("OfonoContext", new Ofono());
-    QDeclarativeComponent component(engine, QUrl::fromLocalFile("./qml/qMoPho.qml"));
+    QDeclarativeComponent component(engine, QUrl::fromLocalFile("./qml/mobos-gui.qml"));
     // to print out errors in the qml file
     if(component.isError()) {
         QListIterator<QDeclarativeError> itr (component.errors());

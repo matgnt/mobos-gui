@@ -5,7 +5,7 @@
 ui_*.h
 obj/
 Makefile
-qMoPho
+mobos-gui
 3rdparty/qtDbus/Makefile
 3rdparty/qtDbus/gdb.txt
 3rdparty/qtDbus/obj/
