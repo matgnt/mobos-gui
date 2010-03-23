@@ -18,7 +18,7 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 	ui.setupUi(this);
 
-    QML_REGISTER_TYPE(OfonoLib, 1,0, Ofono, Ofono);
+    qmlRegisterType<Ofono>("OfonoLib", 1, 0, "Ofono");
 
 
     QDeclarativeEngine *engine = new QDeclarativeEngine();
