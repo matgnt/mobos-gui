@@ -13,3 +13,4 @@ mobos-gui
 .cproject
 .project
 gdb.txt
+qrc_resources.cpp
