@@ -35,6 +35,13 @@ VoiceCallState VoiceCall::getState() const
 {
     return m_state;
 }
+/*
+ * Wraps just around getObjectPath
+ */
+QString VoiceCall::getId() const
+{
+    return getObjectPath();
+}
 
 VoiceCall& VoiceCall::operator =(const VoiceCall& voiceCall)
 {

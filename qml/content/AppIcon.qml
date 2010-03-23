@@ -43,6 +43,6 @@ Item {
     states: State {
                 name: "Pressed"
                 when: mouseRegion.pressed == true
-                PropertyChanges { target: container; opacity: 0.8 }
+                PropertyChanges { target: container; opacity: 0.6 }
             }
 }

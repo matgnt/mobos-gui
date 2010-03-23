@@ -32,14 +32,16 @@ private:
 
 signals:
     void callsChanged();
-    void incomingCall(QString number);
-    void outgoingCall(QString number);
+    void incomingCall(QString number, QString voicecallId);
+    void outgoingCall(QString number, QString voicecallId);
 
 public slots:
     // methods, but listed as slots to execute them from QML
     void setPowerOn();
     void setPowerOff();
     void dial(QString number);
+    void answerCall(QString id);
+    void hangupCall(QString id);
 
     // incoming DBus signals
     void PropertyChanged(const QString &name, const QDBusVariant &value);

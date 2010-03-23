@@ -43,13 +43,24 @@ void Ofono::processChangedCalls()
         switch (state)
         {
             case INCOMING:
-                emit incomingCall(call.getNumber());
+                emit incomingCall(call.getNumber(), call.getId());
                 break;
             case OUTGOING:
-                emit outgoingCall(call.getNumber());
+                emit outgoingCall(call.getNumber(), call.getId());
                 break;
         }
     }
+}
+
+void Ofono::answerCall(QString id)
+{
+    OrgOfonoVoiceCallInterface voicecall("org.ofono", id, QDBusConnection::systemBus());
+    voicecall.Answer();
+}
+void Ofono::hangupCall(QString id)
+{
+    OrgOfonoVoiceCallInterface voicecall("org.ofono", id, QDBusConnection::systemBus());
+    voicecall.Hangup();
 }
 
 void Ofono::PropertyChanged(const QString &name, const QDBusVariant &value)

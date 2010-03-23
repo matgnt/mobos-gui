@@ -4,33 +4,55 @@ Item {
     id: container
     width: 240
     height: 320
+    property string number: ""
+    property string callId: ""
+
+    Text {
+        x: 92
+        y: 23
+        text: "Number: "
+        color: "#FFFFFF"
+        style: Text.Raised; styleColor: "black"
+        font.pixelSize: 16
+
+    }
+
+    Text {
+        id: txtNumber
+        x: 92
+        y: 72
+        text: number
+        color: "#FFFFFF"
+        style: Text.Raised; styleColor: "black"
+        font.pixelSize: 16
+
+    }
 
 
+    AppIcon {
+        id: btnAccept
+        x: 41
+        y: 129
+        width: 48
+        height: 48
+        iconSource: "images/gpl/Gnome-call-start_48.png"
+        onClicked: OfonoContext.answerCall(callId)
+    }
+    Loading {
+        x: 104
+        y: 139
 
-        AppIcon {
-            id: btnAccept
-            x: 15
-            y: 125
-            width: 84
-            height: 71
-            iconSource: "images/gpl/Phone_58.png"
-            //onClicked: openDial()
-        }
-        Loading {
-            x: 104
-            y: 139
+    }
 
-        }
-
-        AppIcon {
-            id: btnCancel
-            x: 142
-            y: 125
-            width: 84
-            height: 71
-            iconSource: "images/gpl/Phone_58.png"
-            //onClicked: openDial()
-        }
+    AppIcon {
+        id: btnCancel
+        x: 152
+        y: 129
+        width: 48
+        height: 48
+        iconSource: "images/gpl/Gnome-call-stop_48.png"
+        onClicked: OfonoContext.hangupCall(callId)
+    }
 
 
 }

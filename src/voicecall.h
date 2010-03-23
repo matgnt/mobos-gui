@@ -22,6 +22,7 @@ public:
     VoiceCall& operator=(const VoiceCall& voiceCall);
 
 
+    QString getId() const;
     QString getObjectPath() const;
     QString getNumber() const;
     VoiceCallState getState() const;
