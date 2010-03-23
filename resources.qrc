@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/mobos-gui.qml</file>
+        <file>qml/content/AppIcon.qml</file>
+        <file>qml/content/Button.qml</file>
+        <file>qml/content/CallWaitingView.qml</file>
+        <file>qml/content/Contacts.qml</file>
+        <file>qml/content/ContactsList.qml</file>
+        <file>qml/content/ContactsToolbar.qml</file>
+        <file>qml/content/DialView.qml</file>
+        <file>qml/content/HomeScreen.qml</file>
+        <file>qml/content/Loading.qml</file>
+        <file>qml/content/images/black_box_100.png</file>
+        <file>qml/content/images/gpl/Browser_58.png</file>
+        <file>qml/content/images/gpl/Calendar_58.png</file>
+        <file>qml/content/images/gpl/Chat_58.png</file>
+        <file>qml/content/images/gpl/Clock_58.png</file>
+        <file>qml/content/images/gpl/Gnome-call-start_48.png</file>
+        <file>qml/content/images/gpl/Gnome-call-stop_48.png</file>
+        <file>qml/content/images/gpl/Maps_58.png</file>
+        <file>qml/content/images/gpl/Notes_58.png</file>
+        <file>qml/content/images/gpl/Phone_58.png</file>
+        <file>qml/content/images/gpl/Settings_58.png</file>
+        <file>qml/content/images/loading.png</file>
+        <file>qml/content/images/grey_box_100.png</file>
+        <file>qml/content/images/stripes.png</file>
+        <file>qml/content/images/lgpl/contacts.png</file>
+        <file>qml/content/images/key_100.png</file>
+    </qresource>
+</RCC>

@@ -94,12 +94,12 @@ Item {
                 onBack: screen.runningApp = ""
             }
 
-            ClockModule.clocks {
-                id: clockView
-                y: 2;
-                x: -(screen.width*5)
-                onClicked: screen.runningApp = ""
-            }
+//            ClockModule.clocks {
+//                id: clockView
+//                y: 2;
+//                x: -(screen.width*5)
+//                onClicked: screen.runningApp = ""
+//            }
 
 //            WebbrowserModule.webbrowser {
 //                id: borwserView

@@ -20,7 +20,6 @@ CONFIG += warn_off
 DEPENDPATH += . src ui
 INCLUDEPATH += . src
 
-
 OBJECTS_DIR = obj
 MOC_DIR = obj
 DESTDIR = .
@@ -46,3 +45,17 @@ SOURCES += src/main.cpp \
             src/dbus/OfonoVoiceCall.cpp \
             src/voicecall.cpp \
     src/voicecalls.cpp
+
+RESOURCES = resources.qrc
+
+unix {
+
+    BINDIR = $$PREFIX/bin
+
+    #MAKE INSTALL
+
+    INSTALLS += target
+
+    target.path = $$BINDIR
+
+}
