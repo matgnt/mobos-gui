@@ -4,6 +4,10 @@
 #include "voicecall.h"
 #include <QList>
 
+/**
+ * \brief
+ * A list of VoiceCall
+ */
 class VoiceCalls : public QList<VoiceCall>
 {
 

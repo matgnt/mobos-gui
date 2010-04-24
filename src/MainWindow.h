@@ -12,6 +12,10 @@
 #include <QtGui/QWidget>
 #include "ui_MainWindow.h"
 
+/**
+ * \brief
+ * The main window where the QML code is loaded and displayed.
+ */
 class MainWindow : public QMainWindow {
 	Q_OBJECT
 

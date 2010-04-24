@@ -120,10 +120,6 @@ const QDBusArgument &operator>>(const QDBusArgument &a, VoiceCall &voicecall) {
     return a;
 }
 
-/*
- * Just map the oFono call states to the c++ state enum
- * If there is no matching state, it returns the enum state NONE (0)
- */
 VoiceCallState Ofono::translateState(QString state)
 {
     if(state == OFONO_STATE_INCOMING) {
