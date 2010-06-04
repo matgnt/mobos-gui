@@ -16,7 +16,7 @@ MOC_DIR = obj
 DESTDIR = .
 
 # Input
-HEADERS += src/MainWindow.h \
+HEADERS += \
             src/ofono.h \
             src/dbus/OfonoModem.h \
             src/dbus/OfonoSimManager.h \
@@ -25,10 +25,8 @@ HEADERS += src/MainWindow.h \
             src/voicecall.h \
     src/voicecalls.h
            
-FORMS +=	ui/MainWindow.ui
 
 SOURCES += src/main.cpp \
-            src/MainWindow.cpp \
             src/ofono.cpp \
             src/dbus/OfonoModem.cpp \
             src/dbus/OfonoSimManager.cpp \
