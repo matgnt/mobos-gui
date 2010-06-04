@@ -26,5 +26,10 @@
         <file>qml/content/images/stripes.png</file>
         <file>qml/content/images/lgpl/contacts.png</file>
         <file>qml/content/images/key_100.png</file>
+        <file>qml/dummydata/Recipes.qml</file>
+        <file>qml/content/images/moreUp.png</file>
+        <file>qml/content/images/moreDown.png</file>
+        <file>qml/content/images/lgpl/female.png</file>
+        <file>qml/content/images/lgpl/male.png</file>
     </qresource>
 </RCC>

@@ -58,7 +58,7 @@ Rectangle {
 
                 Column {
                     //height: recipePic.height; width: background.width-recipePic.width-20
-                    anchors.left: recipePic.right
+                    //anchors.left: recipePic.right
                     spacing: 10
                     Text { id: name; text: title; font.bold: true; font.pointSize: 16 }
 //                    Text {
