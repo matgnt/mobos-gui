@@ -1,8 +1,8 @@
 import Qt 4.7
 
 import "content" as AppModules
-import "3rdparty/qt/clocks" as ClockModule
-import "3rdparty/qt/webbrowser" as WebbrowserModule
+//import "3rdparty/qt/clocks" as ClockModule
+//import "3rdparty/qt/webbrowser" as WebbrowserModule
 import OfonoLib 1.0
 
 
