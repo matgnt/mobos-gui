@@ -89,7 +89,7 @@ Rectangle {
                     id: flick
                     anchors.top: methodTitle.bottom; anchors.bottom: parent.bottom
                     width: parent.width; contentHeight: methodText.height; clip: true
-                    Text { id: methodText; text: method; wrap: true; width: details.width }
+                    Text { id: methodText; text: method; wrapMode: Text.WordWrap; width: details.width }
                 }
                 Image {
                     anchors.right: flick.right; anchors.top: flick.top
