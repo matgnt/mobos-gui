@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
     }
 
     view.setSource(QUrl::fromLocalFile(":qml/mobos-gui.qml"));
+    view.setSceneRect(0, 0, 240, 320);
     view.show();
 
     return a.exec();
