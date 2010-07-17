@@ -4,6 +4,7 @@ import "content" as AppModules
 //import "3rdparty/qt/clocks" as ClockModule
 //import "3rdparty/qt/webbrowser" as WebbrowserModule
 import OfonoLib 1.0
+import "ofonohelper.js" as Helper
 
 
 
@@ -14,7 +15,13 @@ Item {
 
     Ofono {
         onIncomingCall: { screen.state = "callWaiting"; console.log("QML: Incoming Call: " + number); callWaitingView.number = number; callWaitingView.callId = voicecallId }
-        onOutgoingCall: { screen.state = "callWaiting"; console.log("QML: Outgoing Call: " + number) }
+        onOutgoingCall: {
+            screen.state = "callWaiting";
+            console.log("QML: Outgoing Call: " + number);
+            callWaitingView.number = Helper.getCallerNumber(voicecallId);
+            callWaitingView.callId = voicecallId;
+        }
+        onDisconnectedCall: { screen.state = ""; console.log("QML: DisconnectedCall: " + voiceallId) }
     }
 
     Rectangle {
