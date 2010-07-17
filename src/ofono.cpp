@@ -48,6 +48,11 @@ void Ofono::processChangedCalls()
             case OUTGOING:
                 emit outgoingCall(call.getNumber(), call.getId());
                 break;
+            case ACCEPTED:
+                emit acceptedCall(call.getId());
+                break;
+        case DISCONNECTED:
+                emit disconnectedCall(call.getId());
         }
     }
 }
@@ -84,6 +89,13 @@ QString Ofono::getWaitingNumber()
 {
     return "55555";
 }
+
+QString Ofono::getPhoneNumber(QString id)
+{
+    return "21";
+}
+
+
 
 /*
  * Map the QDbusArgument for one call to the corresponding Qt type VoiceCall.
@@ -126,6 +138,14 @@ VoiceCallState Ofono::translateState(QString state)
         return INCOMING;
     } else if(state == OFONO_STATE_OUTGOING) {
         return OUTGOING;
+    } else if(state == OFONO_STATE_ALERTING) {
+        return NONE;
+    } else if(state == OFONO_STATE_ALERTING) {
+        return NONE;
+    } else if(state == OFONO_STATE_ALERTING) {
+        return NONE;
+    } else if(state == OFONO_STATE_DISCONNECTED) {
+        return DISCONNECTED;
     } else {
         return NONE;
     }

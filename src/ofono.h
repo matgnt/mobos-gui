@@ -14,6 +14,10 @@
 #define OFONO_MODEM_OBJECT_PATH "/phonesim"
 #define OFONO_STATE_INCOMING "incoming"
 #define OFONO_STATE_OUTGOING "dialing"
+#define OFONO_STATE_HELD "held"
+#define OFONO_STATE_ALERTING "alerting"
+#define OFONO_STATE_ACTIVE "active"
+#define OFONO_STATE_DISCONNECTED "disconnected"
 
 /**
  * \brief
@@ -52,6 +56,9 @@ signals:
      * Emited whenever an outgoing call is announced via oFono DBus.
      */
     void outgoingCall(QString number, QString voicecallId);
+
+    void acceptedCall(QString voicecallId);
+    void disconnectedCall(QString voicecallId);
 
 public slots:
     // methods, but listed as slots to execute them from QML
@@ -92,6 +99,13 @@ public slots:
      * Slot to process internal signals to emit simpler signals for QML
      */
     void processChangedCalls();
+
+public:
+    /**
+     * @param id The Call-ID which is the voicecall object path
+     * @return The phone number for the Call-ID
+     */
+    Q_INVOKABLE QString getPhoneNumber(QString id);
 
 private:
     OrgOfonoVoiceCallManagerInterface* m_VoiceCallManager;

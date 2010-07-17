@@ -8,7 +8,9 @@ enum VoiceCallState
 {
     NONE,
     INCOMING,
-    OUTGOING
+    OUTGOING,
+    ACCEPTED,
+    DISCONNECTED
 };
 
 /**
