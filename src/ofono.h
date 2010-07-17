@@ -61,35 +61,6 @@ signals:
     void disconnectedCall(QString voicecallId);
 
 public slots:
-    // methods, but listed as slots to execute them from QML
-	/**
-	 * To be executed from QML.
-	 * Set the oFono "powered" property to "true"
-	 */
-    void setPowerOn();
-	/**
-	 * To be executed from QML.
-	 * Set the oFono "powered" property to "false"
-	 */
-    void setPowerOff();
-    /**
-     * To be executed from QML.
-     * DBus VoiceCallManager.Dial
-     * @param number The number to dial.
-     */
-    void dial(QString number);
-    /**
-     * To be executed from QML.
-     * @param id DBus VoiceCall Object Path
-     */
-    void answerCall(QString id);
-    /**
-     * To be executed from QML.
-     * @param id DBus VoiceCall Object Path
-     */
-    void hangupCall(QString id);
-
-
     /**
      * Slot for incoming DBus oFono signals
      */
@@ -101,6 +72,27 @@ public slots:
     void processChangedCalls();
 
 public:
+    /**
+     * Set the oFono "powered" property to "true"
+     */
+    Q_INVOKABLE void setPowerOn();
+    /**
+     * Set the oFono "powered" property to "false"
+     */
+    Q_INVOKABLE void setPowerOff();
+    /**
+     * DBus VoiceCallManager.Dial
+     * @param number The number to dial.
+     */
+    Q_INVOKABLE void dial(QString number);
+    /**
+     * @param id DBus VoiceCall Object Path
+     */
+    Q_INVOKABLE void answerCall(QString id);
+    /**
+     * @param id DBus VoiceCall Object Path
+     */
+    Q_INVOKABLE void hangupCall(QString id);
     /**
      * @param id The Call-ID which is the voicecall object path
      * @return The phone number for the Call-ID
