@@ -92,9 +92,26 @@ QString Ofono::getWaitingNumber()
 
 QString Ofono::getPhoneNumber(QString id)
 {
-    return "21";
+    VoiceCall* call = getCall(id);
+    if(call) {
+        QString number = call->getNumber();
+        delete call;
+        return number;
+    }
+    return "0";
 }
 
+VoiceCall* Ofono::getCall(QString id)
+{
+    QListIterator<VoiceCall> itr(m_voiceCalls);
+    while(itr.hasNext()) {
+        VoiceCall call = itr.next();
+        if(call.getId() == id) {
+            return new VoiceCall(call);
+        }
+    }
+    return 0;
+}
 
 
 /*

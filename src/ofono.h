@@ -107,6 +107,8 @@ private:
      */
     VoiceCalls m_voiceCalls;
 
+    VoiceCall* getCall(QString id);
+
 };
 
 //QML_DECLARE_TYPE(Ofono);
