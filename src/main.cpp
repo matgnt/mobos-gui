@@ -16,8 +16,6 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    qmlRegisterType<Ofono>("OfonoLib", 1, 0, "Ofono");
-
     QDeclarativeView view;
 
     view.rootContext()->setContextProperty("OfonoContext", new Ofono());
