@@ -1,10 +1,10 @@
 import Qt 4.7
+import "../ofonohelper.js" as Helper
 
 Item {
     id: container
     width: 240
     height: 320
-    property string number: ""
     property string callId: ""
 
     Text {
@@ -21,7 +21,7 @@ Item {
         id: txtNumber
         x: 92
         y: 72
-        text: number
+        text: Helper.getCallerNumber(callId);
         color: "#FFFFFF"
         style: Text.Raised; styleColor: "black"
         font.pixelSize: 16

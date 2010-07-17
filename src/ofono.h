@@ -51,14 +51,14 @@ signals:
 	/**
 	 * Emited whenever an incoming call is announced via oFono DBus.
 	 */
-    void incomingCall(QString number, QString voicecallId);
+    void incomingCall(QString id);
     /**
      * Emited whenever an outgoing call is announced via oFono DBus.
      */
-    void outgoingCall(QString number, QString voicecallId);
+    void outgoingCall(QString id);
 
-    void acceptedCall(QString voicecallId);
-    void disconnectedCall(QString voicecallId);
+    void acceptedCall(QString id);
+    void disconnectedCall(QString id);
 
 public slots:
     /**

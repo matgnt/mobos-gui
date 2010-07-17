@@ -3,7 +3,6 @@ import Qt 4.7
 import "content" as AppModules
 //import "3rdparty/qt/clocks" as ClockModule
 //import "3rdparty/qt/webbrowser" as WebbrowserModule
-import "ofonohelper.js" as Helper
 
 
 
@@ -14,14 +13,17 @@ Item {
 
     Connections {
         target: OfonoContext
-        onIncomingCall: { screen.state = "callWaiting"; console.log("QML: Incoming Call: " + number); callWaitingView.number = number; callWaitingView.callId = voicecallId }
+        onIncomingCall: {
+            screen.state = "callWaiting";
+            console.log("QML: Incoming Call: " + id);
+            callWaitingView.callId = id;
+        }
         onOutgoingCall: {
             screen.state = "callWaiting";
-            console.log("QML: Outgoing Call: " + number);
-            callWaitingView.number = Helper.getCallerNumber(voicecallId);
-            callWaitingView.callId = voicecallId;
+            console.log("QML: Outgoing Call: " + id);
+            callWaitingView.callId = id;
         }
-        onDisconnectedCall: { screen.state = ""; console.log("QML: DisconnectedCall: " + voiceallId) }
+        onDisconnectedCall: { screen.state = ""; console.log("QML: DisconnectedCall: " + id) }
     }
 
     Rectangle {

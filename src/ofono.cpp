@@ -43,10 +43,10 @@ void Ofono::processChangedCalls()
         switch (state)
         {
             case INCOMING:
-                emit incomingCall(call.getNumber(), call.getId());
+                emit incomingCall(call.getId());
                 break;
             case OUTGOING:
-                emit outgoingCall(call.getNumber(), call.getId());
+                emit outgoingCall(call.getId());
                 break;
             case ACCEPTED:
                 emit acceptedCall(call.getId());
