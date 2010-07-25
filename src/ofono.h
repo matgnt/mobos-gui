@@ -45,9 +45,10 @@ signals:
 	/**
 	 * Emited whenever oFono DBus sends "Calls".
 	 * The list of current calls changed.
-	 * Used internally to emit either incomingCall() or outgoingCall()
+     * Used internally to emit incomingCall(), outgoingCall(), ...
+     * @param calls List of current calls.
 	 */
-    void callsChanged();
+    void callsChanged(VoiceCalls calls);
 	/**
 	 * Emited whenever an incoming call is announced via oFono DBus.
 	 */
@@ -56,8 +57,9 @@ signals:
      * Emited whenever an outgoing call is announced via oFono DBus.
      */
     void outgoingCall(QString id);
-
-    void acceptedCall(QString id);
+    void heldCall(QString id);
+    void activeCall(QString id);
+    void alertingCall(QString id);
     void disconnectedCall(QString id);
 
 public slots:
@@ -68,8 +70,14 @@ public slots:
 
     /**
      * Slot to process internal signals to emit simpler signals for QML
+     * @param calls List with the current calls
      */
-    void processChangedCalls();
+    //void processChangedCalls(VoiceCalls calls);
+
+    /**
+     * Process a single call update
+     */
+    void processCallUpdate(const VoiceCall* call);
 
 public:
     /**
@@ -107,7 +115,7 @@ private:
      */
     VoiceCalls m_voiceCalls;
 
-    VoiceCall* getCall(QString id);
+    void emitCallState(const VoiceCall* call);
 
 };
 
