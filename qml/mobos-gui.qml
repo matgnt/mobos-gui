@@ -14,11 +14,9 @@ Item {
     Connections {
         target: OfonoContext
         onIncomingCall: {
-            screen.state = "callAlerting";
             console.log("QML: Incoming Call: " + id);
         }
         onOutgoingCall: {
-            screen.state = "callAlerting";
             console.log("QML: Outgoing Call: " + id);
         }
         onDisconnectedCall: {
@@ -31,7 +29,7 @@ Item {
         }
         onActiveCall: {
             console.log("QML: ActiveCall: " + id);
-            screen.state = "callAlerting";
+            screen.state = "callActive";
         }
 
     }
@@ -148,6 +146,12 @@ Item {
                 width: parent.width
                 height: parent.height
             }
+            AppModules.CallActiveState {
+                id: callActiveState
+                x: -(screen.width*5)
+                width: parent.width
+                height: parent.height
+            }
 
 
 
@@ -183,6 +187,11 @@ Item {
         State {
             name: "dialing"
             PropertyChanges{ target: callDialingState; x:0 }
+            PropertyChanges{ target: homeView; x: (screen.width*2) }
+        },
+        State {
+            name: "callActive"
+            PropertyChanges{ target: callActiveState; x:0 }
             PropertyChanges{ target: homeView; x: (screen.width*2) }
         },
 

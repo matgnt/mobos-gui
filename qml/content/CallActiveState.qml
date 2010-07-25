@@ -10,12 +10,11 @@ Item {
     Connections {
         target: OfonoContext
 
-        onAlertingCall: {
+        onActiveCall: {
             txtNumber.text = Helper.getCallerNumber(id);
             callId = id;
-            console.log("CallWaitingView onAlertingCall" + id);
+            console.log("CallActiveState onActiveCall" + id);
         }
-
     }
 
     Text {
@@ -38,18 +37,31 @@ Item {
         font.pixelSize: 16
 
     }
-
-    Loading {
-        id: loader
+    Text {
+        id: activeCaption
         anchors.top: txtNumber.bottom
         anchors.horizontalCenter: txtNumber.horizontalCenter
+        text: "Active since:"
+        color: "#FFFFFF"
+        style: Text.Raised; styleColor: "black"
+        font.pixelSize: 16
+
+    }
+
+    Text {
+        id: txtActiveSince
+        anchors.top: activeCaption.bottom
+        anchors.horizontalCenter: activeCaption.horizontalCenter
+        color: "#FFFFFF"
+        style: Text.Raised; styleColor: "black"
+        font.pixelSize: 16
 
     }
 
     AppIcon {
         id: btnCancel
-        anchors.top: loader.bottom
-        anchors.horizontalCenter: loader.horizontalCenter
+        anchors.top: txtActiveSince.bottom
+        anchors.horizontalCenter: txtActiveSince.horizontalCenter
         width: 48
         height: 48
         iconSource: "images/gpl/Gnome-call-stop_48.png"

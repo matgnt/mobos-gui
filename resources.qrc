@@ -34,5 +34,6 @@
         <file>qml/content/images/loading_white.png</file>
         <file>qml/content/CallDialingState.qml</file>
         <file>qml/content/CallAlertingState.qml</file>
+        <file>qml/content/CallActiveState.qml</file>
     </qresource>
 </RCC>
