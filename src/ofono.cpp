@@ -144,7 +144,6 @@ QString Ofono::getPhoneNumber(QString id)
     VoiceCall* call = m_voiceCalls.getCall(id);
     if(call) {
         QString number = call->getNumber();
-        delete call;
         return number;
     }
     return "0";
