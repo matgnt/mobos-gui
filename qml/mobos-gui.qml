@@ -136,14 +136,14 @@ Item {
                 height: parent.height
 
             }
-            AppModules.CallWaitingView {
-                id: callWaitingView
+            AppModules.CallWaitingState {
+                id: callWaitingState
                 x: -(screen.width*5)
                 width: parent.width
                 height: parent.height
             }
-            AppModules.CallDialingView {
-                id: callDialingView
+            AppModules.CallDialingState {
+                id: callDialingState
                 x: -(screen.width*5)
                 width: parent.width
                 height: parent.height
@@ -182,13 +182,13 @@ Item {
         },
         State {
             name: "dialing"
-            PropertyChanges{ target: callDialingView; x:0 }
+            PropertyChanges{ target: callDialingState; x:0 }
             PropertyChanges{ target: homeView; x: (screen.width*2) }
         },
 
         State {
             name: "callWaiting"
-            PropertyChanges{ target: callWaitingView; x:0 }
+            PropertyChanges{ target: callWaitingState; x:0 }
             PropertyChanges{ target: homeView; x: (screen.width*2) }
 
         }

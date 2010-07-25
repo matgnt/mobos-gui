@@ -3,7 +3,6 @@
         <file>qml/mobos-gui.qml</file>
         <file>qml/content/AppIcon.qml</file>
         <file>qml/content/Button.qml</file>
-        <file>qml/content/CallWaitingView.qml</file>
         <file>qml/content/Contacts.qml</file>
         <file>qml/content/ContactsList.qml</file>
         <file>qml/content/ContactsToolbar.qml</file>
@@ -33,6 +32,7 @@
         <file>qml/content/images/lgpl/male.png</file>
         <file>qml/ofonohelper.js</file>
         <file>qml/content/images/loading_white.png</file>
-        <file>qml/content/CallDialingView.qml</file>
+        <file>qml/content/CallDialingState.qml</file>
+        <file>qml/content/CallWaitingState.qml</file>
     </qresource>
 </RCC>
