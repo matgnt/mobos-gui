@@ -7,6 +7,14 @@ Item {
     height: 320
     property string callId: ""
 
+    Connections {
+        target: OfonoContext
+
+        onActiveCall: {
+            console.log("CallWaitingView onActiveCall");
+        }
+    }
+
     Text {
         x: 92
         y: 23

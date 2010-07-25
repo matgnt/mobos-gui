@@ -3,7 +3,7 @@ import Qt 4.7
 import "content" as AppModules
 //import "3rdparty/qt/clocks" as ClockModule
 //import "3rdparty/qt/webbrowser" as WebbrowserModule
-
+import "ofonohelper.js" as Helper
 
 
 
@@ -23,7 +23,20 @@ Item {
             console.log("QML: Outgoing Call: " + id);
             callWaitingView.callId = id;
         }
-        onDisconnectedCall: { screen.state = ""; console.log("QML: DisconnectedCall: " + id) }
+        onDisconnectedCall: {
+            screen.state = "";
+            console.log("QML: DisconnectedCall: " + id);
+        }
+        onAlertingCall: {
+            console.log("QML: AlertingCall: " + id);
+            console.log("QML: AlertingCall: " + Helper.getCallerNumber(id));
+            screen.state = "callWaiting";
+        }
+        onActiveCall: {
+            console.log("QML: ActiveCall: " + id);
+            console.log("QML: ActiveCall: " + Helper.getCallerNumber(id));
+        }
+
     }
 
     Rectangle {
