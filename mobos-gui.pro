@@ -23,7 +23,10 @@ HEADERS += \
             src/dbus/OfonoVoiceCallManager.h \
             src/dbus/OfonoVoiceCall.h \
             src/voicecall.h \
-    src/voicecalls.h
+    src/voicecalls.h \
+    src/voicecallupdaterif.h \
+    src/voicecallupdaterofono.h \
+    src/VoiceCallStateEnum.h
            
 
 SOURCES += src/main.cpp \
@@ -33,7 +36,9 @@ SOURCES += src/main.cpp \
             src/dbus/OfonoVoiceCallManager.cpp \
             src/dbus/OfonoVoiceCall.cpp \
             src/voicecall.cpp \
-    src/voicecalls.cpp
+    src/voicecalls.cpp \
+    src/voicecallupdaterofono.cpp \
+    src/voicecallupdaterif.cpp
 
 RESOURCES = resources.qrc
 
