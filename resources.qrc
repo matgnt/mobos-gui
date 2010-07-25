@@ -33,6 +33,6 @@
         <file>qml/ofonohelper.js</file>
         <file>qml/content/images/loading_white.png</file>
         <file>qml/content/CallDialingState.qml</file>
-        <file>qml/content/CallWaitingState.qml</file>
+        <file>qml/content/CallAlertingState.qml</file>
     </qresource>
 </RCC>

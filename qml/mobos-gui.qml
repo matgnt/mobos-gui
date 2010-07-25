@@ -14,11 +14,11 @@ Item {
     Connections {
         target: OfonoContext
         onIncomingCall: {
-            screen.state = "callWaiting";
+            screen.state = "callAlerting";
             console.log("QML: Incoming Call: " + id);
         }
         onOutgoingCall: {
-            screen.state = "callWaiting";
+            screen.state = "callAlerting";
             console.log("QML: Outgoing Call: " + id);
         }
         onDisconnectedCall: {
@@ -27,11 +27,11 @@ Item {
         }
         onAlertingCall: {
             console.log("QML: AlertingCall: " + id);
-            screen.state = "callWaiting";
+            screen.state = "callAlerting";
         }
         onActiveCall: {
             console.log("QML: ActiveCall: " + id);
-            screen.state = "callWaiting";
+            screen.state = "callAlerting";
         }
 
     }
@@ -98,7 +98,7 @@ Item {
                 onOpenClock: screen.state = "clock"
                 onOpenBrowser: screen.state = "browser"
                 onOpenContacts: screen.state = "contacts"
-                onOpenWaitingView: screen.state = "callWaiting"
+                onOpenWaitingView: screen.state = "callAlerting"
             }
 
             AppModules.DialView{
@@ -136,8 +136,8 @@ Item {
                 height: parent.height
 
             }
-            AppModules.CallWaitingState {
-                id: callWaitingState
+            AppModules.CallAlertingState {
+                id: callAlertingState
                 x: -(screen.width*5)
                 width: parent.width
                 height: parent.height
@@ -187,8 +187,8 @@ Item {
         },
 
         State {
-            name: "callWaiting"
-            PropertyChanges{ target: callWaitingState; x:0 }
+            name: "callAlerting"
+            PropertyChanges{ target: callAlertingState; x:0 }
             PropertyChanges{ target: homeView; x: (screen.width*2) }
 
         }
