@@ -10,8 +10,16 @@ Item {
     Connections {
         target: OfonoContext
 
+        onAlertingCall: {
+            txtNumber.text = Helper.getCallerNumber(id);
+            callId = id;
+            console.log("CallWaitingView onAlertingCall" + id);
+        }
+
         onActiveCall: {
-            console.log("CallWaitingView onActiveCall");
+            txtNumber.text = Helper.getCallerNumber(id);
+            callId = id;
+            console.log("CallWaitingView onActiveCall" + id);
         }
     }
 
@@ -29,7 +37,6 @@ Item {
         id: txtNumber
         x: 92
         y: 72
-        text: Helper.getCallerNumber(callId);
         color: "#FFFFFF"
         style: Text.Raised; styleColor: "black"
         font.pixelSize: 16

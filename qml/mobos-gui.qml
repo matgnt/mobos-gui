@@ -16,12 +16,10 @@ Item {
         onIncomingCall: {
             screen.state = "callWaiting";
             console.log("QML: Incoming Call: " + id);
-            callWaitingView.callId = id;
         }
         onOutgoingCall: {
             screen.state = "callWaiting";
             console.log("QML: Outgoing Call: " + id);
-            callWaitingView.callId = id;
         }
         onDisconnectedCall: {
             screen.state = "";
@@ -29,12 +27,11 @@ Item {
         }
         onAlertingCall: {
             console.log("QML: AlertingCall: " + id);
-            console.log("QML: AlertingCall: " + Helper.getCallerNumber(id));
             screen.state = "callWaiting";
         }
         onActiveCall: {
             console.log("QML: ActiveCall: " + id);
-            console.log("QML: ActiveCall: " + Helper.getCallerNumber(id));
+            screen.state = "callWaiting";
         }
 
     }
