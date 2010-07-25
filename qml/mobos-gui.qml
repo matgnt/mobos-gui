@@ -142,6 +142,12 @@ Item {
                 width: parent.width
                 height: parent.height
             }
+            AppModules.CallDialingView {
+                id: callDialingView
+                x: -(screen.width*5)
+                width: parent.width
+                height: parent.height
+            }
 
 
 
@@ -174,6 +180,12 @@ Item {
             PropertyChanges{ target: contacts; x:0 }
             PropertyChanges{ target: homeView; x: (screen.width*2) }
         },
+        State {
+            name: "dialing"
+            PropertyChanges{ target: callDialingView; x:0 }
+            PropertyChanges{ target: homeView; x: (screen.width*2) }
+        },
+
         State {
             name: "callWaiting"
             PropertyChanges{ target: callWaitingView; x:0 }

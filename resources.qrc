@@ -32,5 +32,7 @@
         <file>qml/content/images/lgpl/female.png</file>
         <file>qml/content/images/lgpl/male.png</file>
         <file>qml/ofonohelper.js</file>
+        <file>qml/content/images/loading_white.png</file>
+        <file>qml/content/CallDialingView.qml</file>
     </qresource>
 </RCC>
