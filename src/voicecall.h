@@ -3,15 +3,9 @@
 
 #include <QObject>
 #include <QDebug>
+#include "VoiceCallStateEnum.h"
+#include <voicecallupdaterif.h>
 
-enum VoiceCallState
-{
-    NONE,
-    INCOMING,
-    OUTGOING,
-    ACCEPTED,
-    DISCONNECTED
-};
 
 /**
  * \brief
@@ -22,6 +16,7 @@ class VoiceCall : public QObject
 Q_OBJECT
 public:
     VoiceCall() {}
+    VoiceCall(VoiceCallUpdaterIF* updater);
     /**
      * @param objectPath is the identifier for each VoiceCall because it is unique in the oFono DBus interface.
      * @param number The calling/called phone number of the VoiceCall.
@@ -32,7 +27,7 @@ public:
      * Copy Constructor because the class is used with Qt lists.
      */
     VoiceCall(const VoiceCall &voicecall);
-    virtual ~VoiceCall() {}
+    virtual ~VoiceCall();
     /**
      * Assign operator because the class is used with Qt lists.
      */
@@ -58,8 +53,10 @@ public:
      */
     VoiceCallState getState() const;
 
+    //void update(const VoiceCall& call);
 
 signals:
+    void update(const VoiceCall*);
 
 public slots:
 	/**
@@ -74,10 +71,14 @@ public slots:
     void setState(VoiceCallState);
     //void setObjectPath()
 
+    void processUpdate();
+
 private:
     QString m_number;
     VoiceCallState m_state;
     QString m_objectPath;
+
+    VoiceCallUpdaterIF* m_updater;
 
 
 };

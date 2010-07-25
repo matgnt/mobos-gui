@@ -8,14 +8,16 @@
  * \brief
  * A list of VoiceCall
  */
-class VoiceCalls : public QList<VoiceCall>
+class VoiceCalls : public QList<VoiceCall*>
 {
 
 public:
     VoiceCalls() {}
-    VoiceCalls(const QList<VoiceCall> &voicecalls);
+    VoiceCalls(const QList<VoiceCall*> voicecalls);
     ~VoiceCalls() {}
+    VoiceCall* getCall(QString id);
     //QDebug operator<<(QDebug, const VoiceCalls);
+
 
 signals:
 

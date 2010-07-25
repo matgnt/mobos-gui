@@ -1,0 +1,16 @@
+#ifndef VOICECALLSTATEENUM_H
+#define VOICECALLSTATEENUM_H
+
+enum VoiceCallState
+{
+    NONE,
+    INCOMING,
+    OUTGOING,
+    HELD,
+    ALERTING,
+    ACTIVE,
+    DISCONNECTED
+
+};
+
+#endif // VOICECALLSTATEENUM_H
