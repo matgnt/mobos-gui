@@ -12,6 +12,7 @@ Q_OBJECT
 
 public:
     VoiceCallUpdaterIF(QString id);
+    virtual ~VoiceCallUpdaterIF(){}
     //VoiceCallUpdaterIF(const VoiceCallUpdaterIF&){}
     virtual VoiceCallState getState();
     virtual QString getNumber();

@@ -13,7 +13,10 @@ Ofono::Ofono(QObject *parent) :
     connect(m_VoiceCallManager, SIGNAL(PropertyChanged(const QString, const QDBusVariant)), this, SLOT(PropertyChanged(const QString, const QDBusVariant)));
 
     // connect the process slots
-    connect(this, SIGNAL(callsChanged(VoiceCalls)), this, SLOT(processChangedCalls(VoiceCalls)));
+    //connect(this, SIGNAL(callsChanged(VoiceCalls)), this, SLOT(processChangedCalls(VoiceCalls)));
+
+    // connect the VoiceCall member to receive call upates
+    connect(&m_voiceCalls, SIGNAL(update(VoiceCall*)), this, SLOT(processCallUpdate(VoiceCall*)));
 
 }
 
@@ -108,8 +111,7 @@ void Ofono::PropertyChanged(const QString &name, const QDBusVariant &value)
         const QVariant var = value.variant();
         const QDBusArgument a = var.value<QDBusArgument>();
 
-        VoiceCalls calls;
-        calls.empty();
+        m_voiceCalls.empty();
 
         a.beginArray();
         while(!a.atEnd()) {
@@ -117,19 +119,15 @@ void Ofono::PropertyChanged(const QString &name, const QDBusVariant &value)
             a >> opath;
             VoiceCallUpdaterOfono* ofonoCall = new VoiceCallUpdaterOfono(opath.path());
             VoiceCall* vc = new VoiceCall(ofonoCall);
-            connect(vc, SIGNAL(update(const VoiceCall*)), this, SLOT(processCallUpdate(const VoiceCall*)));
-            calls.append(vc);
+            //connect(vc, SIGNAL(update(const VoiceCall*)), this, SLOT(processCallUpdate(const VoiceCall*)));
+            m_voiceCalls.append(vc);
         }
         a.endArray();
-
-        qDebug() << calls;
-        //emit callsChanged(calls);
-        m_voiceCalls = calls;
 
     }
 }
 
-void Ofono::processCallUpdate(const VoiceCall* call)
+void Ofono::processCallUpdate(VoiceCall* call)
 {
     emitCallState(call);
 }

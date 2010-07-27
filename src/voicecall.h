@@ -51,7 +51,7 @@ public:
     //void update(const VoiceCall& call);
 
 signals:
-    void update(const VoiceCall*);
+    void update(VoiceCall* voiceCall);
 
 public slots:
     void processUpdate();

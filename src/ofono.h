@@ -48,7 +48,7 @@ signals:
      * Used internally to emit incomingCall(), outgoingCall(), ...
      * @param calls List of current calls.
 	 */
-    void callsChanged(VoiceCalls calls);
+    //void callsChanged(VoiceCalls calls);
 	/**
 	 * Emited whenever an incoming call is announced via oFono DBus.
 	 */
@@ -77,7 +77,7 @@ public slots:
     /**
      * Process a single call update
      */
-    void processCallUpdate(const VoiceCall* call);
+    void processCallUpdate(VoiceCall* call);
 
 public:
     /**

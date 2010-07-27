@@ -28,10 +28,7 @@ QString VoiceCall::getId() const
 
 VoiceCall::~VoiceCall()
 {
-    // TODO: ptential memory leak. can not be deleted here because the objects are
-    // copied serveral times an the pointer is necessary because of the signal/slot
-    // connections in it.
-    //delete m_updater;
+    delete m_updater;
 }
 
 QDebug operator<<(QDebug dbg, const VoiceCall* voicecall)
