@@ -15,6 +15,7 @@ Item {
         target: OfonoContext
         onIncomingCall: {
             console.log("QML: Incoming Call: " + id);
+            screen.state = "callIncoming"
         }
         onOutgoingCall: {
             console.log("QML: Outgoing Call: " + id);
@@ -152,6 +153,12 @@ Item {
                 width: parent.width
                 height: parent.height
             }
+            AppModules.CallIncomingState {
+                id: callIncomingState
+                x: -(screen.width*5)
+                width: parent.width
+                height: parent.height
+            }
 
 
 
@@ -192,6 +199,11 @@ Item {
         State {
             name: "callActive"
             PropertyChanges{ target: callActiveState; x:0 }
+            PropertyChanges{ target: homeView; x: (screen.width*2) }
+        },
+        State {
+            name: "callIncoming"
+            PropertyChanges{ target: callIncomingState; x:0 }
             PropertyChanges{ target: homeView; x: (screen.width*2) }
         },
 
