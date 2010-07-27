@@ -40,6 +40,7 @@ void VoiceCalls::append(VoiceCall* voiceCall)
 {
     connect(voiceCall, SIGNAL(update(VoiceCall*)), this, SLOT(processCallUpdate(VoiceCall*)));
     m_VoiceCalls.append(voiceCall);
+    emit update(voiceCall);
     qDebug() << "VoiceCalls::append" << this->m_VoiceCalls.count();
 }
 

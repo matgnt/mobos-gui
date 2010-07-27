@@ -18,6 +18,7 @@ VoiceCallUpdaterOfono::VoiceCallUpdaterOfono(QString call_object_path) :
             QVariantMap val = reply.value();
             //qDebug() << val;
             m_number = val["LineIdentification"].toString();
+            m_state = Ofono::translateState(val["State"].toString());
 
         } else {
             qDebug() << "Invalid reply: " << reply.error().message();
