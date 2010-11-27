@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
         //dummyData->setParent(this);
     }
 
-    view.setSource(QUrl::fromLocalFile(":qml/mobos-gui.qml"));
+    view.setSource(QUrl("qrc:qml/mobos-gui.qml"));
     view.setSceneRect(0, 0, 240, 320);
     view.show();
 
